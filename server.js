@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const {
   messagesService,
-} = require("../../sys_message_queue_shop/src/service/consumerQueue.service"); // Đảm bảo bạn import đúng module
+} = require("./src/service/consumerQueue.service"); // Đảm bảo bạn import đúng module
 
 const app = express();
 const port = 2001;

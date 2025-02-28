@@ -5,7 +5,7 @@ let connection;
 
 async function connectRabbitMQ() {
   if (!connection) {
-    connection = await amqp.connect("amqp://localhost");
+    connection = await amqp.connect("amqp://rabbitmq");
     channel = await connection.createChannel();
   }
 }
