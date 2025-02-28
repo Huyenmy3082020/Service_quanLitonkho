@@ -3,7 +3,7 @@ const { createClient } = require("redis");
 const runProducer = require("../../src/producer/producer");
 
 const redisClient = createClient({
-  socket: { host: "localhost", port: 6379 },
+  socket: { host: "redis", port: 6379 },
 });
 redisClient.on("error", (err) => console.error("❌ Redis error:", err));
 
@@ -15,7 +15,7 @@ async function connectRedis() {
 }
 
 async function connectRabbitMQ() {
-  const connection = await amqp.connect("amqp://localhost");
+  const connection = await amqp.connect("amqp://rabbitmq");
   const channel = await connection.createChannel();
   return { connection, channel };
 }
