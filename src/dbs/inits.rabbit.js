@@ -6,7 +6,7 @@ const sendEmailService = require("../service/sendEmailService");
 // Kết nối đến RabbitMQ
 const connectToRabbitMq = async () => {
   try {
-    const connection = await amqplib.connect("amqp://localhost");
+    const connection = await amqplib.connect("amqp://rabbitmq");
     if (!connection) throw new Error("Failed to connect to RabbitMQ");
     const channel = await connection.createChannel();
     return { channel, connection };
