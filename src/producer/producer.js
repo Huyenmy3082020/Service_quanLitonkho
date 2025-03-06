@@ -2,7 +2,7 @@ const amqp = require("amqplib");
 
 const runProducer = async (stockAlertList) => {
   try {
-    const connection = await amqp.connect("amqp://localhost");
+    const connection = await amqp.connect("amqp://rabbimq");
     const channel = await connection.createChannel();
     const queueName = "sendMail";
 
