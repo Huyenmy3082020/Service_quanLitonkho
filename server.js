@@ -20,6 +20,7 @@ const routes = require("./src/router");
 const connectDB = require("./config/mongodb");
 const consumeNotifications = require("./src/consumers/notificationConsumer");
 const { startConsumer } = require("./src/consumers/consumer");
+const { consumerQueue } = require("./src/dbs/inits.rabbit");
 app.use(express.json());
 
 routes(app);
@@ -33,7 +34,7 @@ consumeNotifications();
 startConsumer();
 
 const queueName = "sendMail";
-messagesService.consumerQueue(queueName).then(() => {
+consumerQueue(queueName).then(() => {
   console.log(`Message consumer started for queue: ${queueName}`);
 });
 
