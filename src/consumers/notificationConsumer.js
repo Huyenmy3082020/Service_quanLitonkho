@@ -1,6 +1,4 @@
-const {
-  connectToRabbitMq,
-} = require("../../../../sys_message_queue_shop/src/dbs/inits.rabbit");
+const { connectToRabbitMq } = require("../dbs/inits.rabbit");
 const { saveNotification } = require("../service/NotificationService");
 
 const consumeNotifications = async () => {
